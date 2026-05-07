@@ -105,8 +105,8 @@ export default function DashboardPage() {
             icon: DollarSign,
             change: "+12.5%",
             trend: "up" as const,
-            color: "text-emerald-600",
-            bg: "bg-emerald-50 dark:bg-emerald-900/20",
+            color: "text-[hsl(var(--earth-olive))]",
+            bg: "bg-[hsl(var(--earth-beige))]",
           },
           {
             title: t("dashboard.totalCustomers"),
@@ -114,8 +114,8 @@ export default function DashboardPage() {
             icon: Users,
             change: "+8",
             trend: "up" as const,
-            color: "text-blue-600",
-            bg: "bg-blue-50 dark:bg-blue-900/20",
+            color: "text-[hsl(var(--earth-brown))]",
+            bg: "bg-[hsl(var(--earth-beige))]",
           },
           {
             title: t("dashboard.totalProducts"),
@@ -123,8 +123,8 @@ export default function DashboardPage() {
             icon: Package,
             change: "+24",
             trend: "up" as const,
-            color: "text-violet-600",
-            bg: "bg-violet-50 dark:bg-violet-900/20",
+            color: "text-[hsl(var(--earth-forest))]",
+            bg: "bg-[hsl(var(--earth-beige))]",
           },
           {
             title: t("dashboard.totalInvoices"),
@@ -132,11 +132,11 @@ export default function DashboardPage() {
             icon: FileText,
             change: "+47",
             trend: "up" as const,
-            color: "text-amber-600",
-            bg: "bg-amber-50 dark:bg-amber-900/20",
+            color: "text-[hsl(var(--earth-bark))]",
+            bg: "bg-[hsl(var(--earth-beige))]",
           },
         ].map((stat) => (
-          <Card key={stat.title} className="relative overflow-hidden">
+          <Card key={stat.title} className="relative overflow-hidden rounded-2xl">
             <CardContent className="p-6">
               <div className="flex items-start justify-between">
                 <div className="space-y-2">
@@ -144,11 +144,11 @@ export default function DashboardPage() {
                   <p className="text-2xl font-bold">{stat.value}</p>
                   <div className="flex items-center gap-1">
                     {stat.trend === "up" ? (
-                      <TrendingUp className="h-3 w-3 text-emerald-500" />
+                      <TrendingUp className="h-3 w-3 text-[hsl(var(--earth-olive))]" />
                     ) : (
                       <TrendingDown className="h-3 w-3 text-red-500" />
                     )}
-                    <span className={cn("text-xs font-medium", stat.trend === "up" ? "text-emerald-500" : "text-red-500")}>
+                    <span className={cn("text-xs font-medium", stat.trend === "up" ? "text-[hsl(var(--earth-olive))]" : "text-red-500")}>
                       {stat.change}
                     </span>
                     <span className="text-xs text-[hsl(var(--muted-foreground))]">
@@ -167,7 +167,7 @@ export default function DashboardPage() {
 
       <div className="grid gap-6 lg:grid-cols-5">
         {/* Sales Chart */}
-        <Card className="lg:col-span-3">
+        <Card className="lg:col-span-3 rounded-2xl">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-base font-semibold">{t("dashboard.salesChart")}</CardTitle>
             <Button variant="ghost" size="sm" className="text-xs">
@@ -190,18 +190,18 @@ export default function DashboardPage() {
         </Card>
 
         {/* Quick Actions */}
-        <Card className="lg:col-span-2">
+        <Card className="lg:col-span-2 rounded-2xl">
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold">{t("dashboard.quickActions")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
             {[
-              { icon: FileText, label: t("dashboard.newInvoice"), color: "text-blue-600 bg-blue-50 dark:bg-blue-900/20" },
-              { icon: Users, label: t("dashboard.newCustomer"), color: "text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20" },
-              { icon: Package, label: t("dashboard.newProduct"), color: "text-violet-600 bg-violet-50 dark:bg-violet-900/20" },
-              { icon: Users, label: t("dashboard.newEmployee"), color: "text-amber-600 bg-amber-50 dark:bg-amber-900/20" },
-              { icon: ShoppingCart, label: isRtl ? "أمر بيع جديد" : "New Sales Order", color: "text-pink-600 bg-pink-50 dark:bg-pink-900/20" },
-              { icon: Truck, label: isRtl ? "مورد جديد" : "New Supplier", color: "text-cyan-600 bg-cyan-50 dark:bg-cyan-900/20" },
+              { icon: FileText, label: t("dashboard.newInvoice"), color: "text-[hsl(var(--earth-brown))] bg-[hsl(var(--earth-beige))]" },
+              { icon: Users, label: t("dashboard.newCustomer"), color: "text-[hsl(var(--earth-olive))] bg-[hsl(var(--earth-beige))]" },
+              { icon: Package, label: t("dashboard.newProduct"), color: "text-[hsl(var(--earth-forest))] bg-[hsl(var(--earth-beige))]" },
+              { icon: Users, label: t("dashboard.newEmployee"), color: "text-[hsl(var(--earth-bark))] bg-[hsl(var(--earth-beige))]" },
+              { icon: ShoppingCart, label: isRtl ? "أمر بيع جديد" : "New Sales Order", color: "text-[hsl(var(--earth-brown))] bg-[hsl(var(--earth-beige))]" },
+              { icon: Truck, label: isRtl ? "مورد جديد" : "New Supplier", color: "text-[hsl(var(--earth-olive))] bg-[hsl(var(--earth-beige))]" },
             ].map((action) => (
               <button
                 key={action.label}
@@ -219,7 +219,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Recent Invoices */}
-      <Card>
+      <Card className="rounded-2xl">
         <CardHeader className="flex flex-row items-center justify-between pb-3">
           <CardTitle className="text-base font-semibold">{t("dashboard.recentInvoices")}</CardTitle>
           <Button variant="ghost" size="sm" className="text-xs">
